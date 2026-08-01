@@ -11,11 +11,11 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-forest-900 dark:text-parchment-100">
           <Logo className="h-6 w-6" />
-          <span className="font-display font-semibold">Silver Leaf</span>
+          <span className="font-display font-semibold"> مطعمي</span>
         </div>
         <p className="text-sm text-ink-600 dark:text-moss-300 text-center">{t.tagline}</p>
         <p className="text-xs font-mono text-ink-600/70 dark:text-moss-300/70">
-          © {new Date().getFullYear()} Silver Leaf — {t.rights}
+          © {new Date().getFullYear()} مطعمي — {t.rights}
         </p>
       </div>
     </footer>
