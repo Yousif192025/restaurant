@@ -23,7 +23,7 @@ export function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
         <a href="#top" className="flex items-center gap-2 text-forest-900 dark:text-parchment-100">
           <Logo className="h-7 w-7" />
-          <span className="font-display text-lg font-semibold">Silver Leaf</span>
+          <span className="font-display text-lg font-semibold">مطعمي </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
