@@ -22,12 +22,12 @@ export const Hero: React.FC = () => {
         >
           <div className="hero-badge">
             <span className="arabic-coffee-icon">☕</span>
-            <span>أهلاً وسهلاً بكم</span>
+            <span>أهلاً وسهلاً بكم في مطعمي</span>
           </div>
           
           <h1 className="hero-title">
-            نكهات سعودية أصيلة
-            <span className="hero-subtitle">و أشهى الأطباق العالمية</span>
+            مطعمي
+            <span className="hero-subtitle">نكهات سعودية أصيلة وأشهى الأطباق العالمية</span>
           </h1>
           
           <p className="hero-description">
