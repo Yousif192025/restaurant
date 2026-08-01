@@ -1,10 +1,19 @@
-# Silver Leaf — Modern Restaurant Ordering Platform (Frontend Rebuild)
+# مطعمي 🍽️
 
-This is the new React frontend for the **restaurant-web-app** (Silver Leaf) rebuild.
-It's built to run **alongside the existing Flask backend** rather than replace it —
-Flask keeps handling auth, table reservations, and orders, while this app takes over
-the customer-facing UI and talks to Flask over a JSON API as those endpoints come online.
+منصة طلب طعام سعودية حديثة تقدم أشهى الأطباق المحلية والعالمية.
 
+## المميزات
+- 🇸🇦 أطباق سعودية أصيلة
+- 🌍 أطباق عالمية متنوعة
+- 📱 تجربة مستخدم عربية متكاملة
+- 🚀 توصيل سريع
+
+## التقنيات المستخدمة
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
 ## Status: Milestone 1 — Architecture Foundation + Homepage
 
 What's included in this milestone:
