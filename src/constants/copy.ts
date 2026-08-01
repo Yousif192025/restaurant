@@ -1,11 +1,15 @@
 export const copy = {
   ar: {
-    nav: { menu: "القائمة", table: "حجز طاولة", orders: "طلباتي", about: "من نحن" },
+    nav: { 
+      menu: "القائمة", 
+      table: "حجز طاولة", 
+      orders: "طلباتي", 
+      about: "من نحن" 
+    },
     hero: {
-      eyebrow: "سيلفر ليف — مطبخ موسمي",
-      title: "نكهات تُطهى على مهل، تصل إليك في دقائق",
-      subtitle:
-        "من فرن الحطب إلى بابك؛ أطباق مطهوة بعناية بمكونات محلية طازجة كل يوم.",
+      eyebrow: "مطعمي — نكهات سعودية أصيلة",  // تم التحديث
+      title: "نكهات سعودية أصيلة تصل إليك في دقائق",
+      subtitle: "أطباق سعودية وعالمية شهية، محضرة بأجود المكونات الطازجة يومياً.",
       ctaPrimary: "اطلب الآن",
       ctaSecondary: "تصفح القائمة",
       stat1Label: "تقييم العملاء",
@@ -15,24 +19,30 @@ export const copy = {
       title: "عروض اليوم",
       subtitle: "خصومات لفترة محدودة على أطباق مختارة",
     },
-    categories: { title: "تصفح حسب الصنف" },
+    categories: { 
+      title: "تصفح حسب الصنف" 
+    },
     popular: {
       title: "الأكثر طلبًا",
       subtitle: "الأطباق التي يعود إليها عملاؤنا مرارًا",
       addToCart: "أضف للسلة",
     },
     footer: {
-      tagline: "طهي هادئ، بلا استعجال — إلا في التوصيل.",
-      rights: "جميع الحقوق محفوظة",
+      tagline: "نكهات سعودية أصيلة — توصيل سريع وطازج.",  // تم التحديث
+      rights: "جميع الحقوق محفوظة",  // تم التحديث (أزلنا Silver Leaf)
     },
   },
   en: {
-    nav: { menu: "Menu", table: "Book a Table", orders: "My Orders", about: "About" },
+    nav: { 
+      menu: "Menu", 
+      table: "Book a Table", 
+      orders: "My Orders", 
+      about: "About" 
+    },
     hero: {
-      eyebrow: "Silver Leaf — Seasonal Kitchen",
-      title: "Slow-cooked flavor, delivered in minutes",
-      subtitle:
-        "From the wood-fired oven to your door — dishes crafted daily with fresh, local ingredients.",
+      eyebrow: "Mata'ami — Authentic Saudi Flavors",  // تم التحديث
+      title: "Authentic Saudi flavors, delivered in minutes",
+      subtitle: "Delicious Saudi and international dishes, freshly prepared daily.",
       ctaPrimary: "Order Now",
       ctaSecondary: "View Menu",
       stat1Label: "Customer Rating",
@@ -42,15 +52,17 @@ export const copy = {
       title: "Today's Offers",
       subtitle: "Limited-time discounts on selected dishes",
     },
-    categories: { title: "Browse by Category" },
+    categories: { 
+      title: "Browse by Category" 
+    },
     popular: {
       title: "Popular Right Now",
       subtitle: "The dishes our regulars keep coming back for",
       addToCart: "Add to Cart",
     },
     footer: {
-      tagline: "Unhurried cooking — delivered without the wait.",
-      rights: "All rights reserved",
+      tagline: "Authentic Saudi flavors — fast and fresh delivery.",  // تم التحديث
+      rights: "All rights reserved",  // تم التحديث (أزلنا Silver Leaf)
     },
   },
 } as const;
