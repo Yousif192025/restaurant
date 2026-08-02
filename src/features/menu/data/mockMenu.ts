@@ -1,5 +1,18 @@
 import type { Category, Product, Review } from "@/types/menu";
 
+/**
+ * Real, keyword-relevant food photos (Creative Commons, via LoremFlickr) instead of
+ * random unrelated placeholders. `lock` pins a specific photo per seed so the same
+ * dish always shows the same image, while still varying across the gallery.
+ */
+function foodImages(keywords: string, count = 2, width = 900, height = 720): string[] {
+  return Array.from({ length: count }, (_, i) => {
+    const seed = `${keywords}-${i}`.split("").reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+    return `https://loremflickr.com/${width}/${height}/${keywords}?lock=${seed}`;
+  });
+}
+
+
 export const categories: Category[] = [
   { id: "burgers", name: { ar: "برجر", en: "Burgers" }, icon: "Beef", productCount: 2 },
   { id: "pizza", name: { ar: "بيتزا", en: "Pizza" }, icon: "Pizza", productCount: 2 },
@@ -96,11 +109,7 @@ export const products: Product[] = [
     isAvailable: true,
     isPopular: true,
     hasOffer: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-brisket-burger/900/720",
-      "https://picsum.photos/seed/silverleaf-brisket-burger-2/900/720",
-      "https://picsum.photos/seed/silverleaf-brisket-burger-3/900/720",
-    ],
+    images: foodImages("burger,brisket", 3),
     tag: { ar: "الأكثر طلبًا", en: "Best Seller" },
     ingredients: [
       { ar: "صدر بقري مدخن", en: "Smoked beef brisket" },
@@ -129,10 +138,7 @@ export const products: Product[] = [
     calories: 690,
     isAvailable: true,
     isPopular: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-smash-burger/900/720",
-      "https://picsum.photos/seed/silverleaf-smash-burger-2/900/720",
-    ],
+    images: foodImages("cheeseburger,burger", 2),
     ingredients: [
       { ar: "لحم بقري مسحوق طازج", en: "Freshly ground beef" },
       { ar: "جبن أمريكي", en: "American cheese" },
@@ -164,11 +170,7 @@ export const products: Product[] = [
     isAvailable: true,
     isVegetarian: true,
     isPopular: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-truffle-pizza/900/720",
-      "https://picsum.photos/seed/silverleaf-truffle-pizza-2/900/720",
-      "https://picsum.photos/seed/silverleaf-truffle-pizza-3/900/720",
-    ],
+    images: foodImages("pizza,margherita", 3),
     ingredients: [
       { ar: "عجينة مخمرة 48 ساعة", en: "48-hour fermented dough" },
       { ar: "موزاريلا طازجة", en: "Fresh mozzarella" },
@@ -197,10 +199,7 @@ export const products: Product[] = [
     isAvailable: true,
     hasOffer: true,
     isVegetarian: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-quattro-formaggi/900/720",
-      "https://picsum.photos/seed/silverleaf-quattro-formaggi-2/900/720",
-    ],
+    images: foodImages("pizza,cheese", 2),
     ingredients: [
       { ar: "موزاريلا", en: "Mozzarella" },
       { ar: "غورغونزولا", en: "Gorgonzola" },
@@ -232,10 +231,7 @@ export const products: Product[] = [
     isAvailable: true,
     isSpicy: true,
     isPopular: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-peri-chicken/900/720",
-      "https://picsum.photos/seed/silverleaf-peri-chicken-2/900/720",
-    ],
+    images: foodImages("grilled,chicken", 2),
     tag: { ar: "حار", en: "Spicy" },
     ingredients: [
       { ar: "نصف دجاجة", en: "Half chicken" },
@@ -261,10 +257,7 @@ export const products: Product[] = [
     prepTimeMinutes: 15,
     calories: 520,
     isAvailable: false,
-    images: [
-      "https://picsum.photos/seed/silverleaf-chicken-tenders/900/720",
-      "https://picsum.photos/seed/silverleaf-chicken-tenders-2/900/720",
-    ],
+    images: foodImages("chicken,tenders", 2),
     ingredients: [
       { ar: "صدر دجاج", en: "Chicken breast" },
       { ar: "بقسماط مقرمش", en: "Crispy breadcrumb" },
@@ -295,11 +288,7 @@ export const products: Product[] = [
     isAvailable: true,
     hasOffer: true,
     isPopular: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-wagyu-skewers/900/720",
-      "https://picsum.photos/seed/silverleaf-wagyu-skewers-2/900/720",
-      "https://picsum.photos/seed/silverleaf-wagyu-skewers-3/900/720",
-    ],
+    images: foodImages("skewers,beef", 3),
     tag: { ar: "عرض اليوم", en: "Today's Deal" },
     ingredients: [
       { ar: "لحم واغيو A5", en: "A5 wagyu beef" },
@@ -325,10 +314,7 @@ export const products: Product[] = [
     calories: 890,
     isAvailable: true,
     isPopular: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-mixed-grill/900/720",
-      "https://picsum.photos/seed/silverleaf-mixed-grill-2/900/720",
-    ],
+    images: foodImages("kebab,grill", 2),
     ingredients: [
       { ar: "كباب لحم", en: "Beef kebab" },
       { ar: "شيش طاووق", en: "Shish tawook" },
@@ -353,10 +339,7 @@ export const products: Product[] = [
     calories: 340,
     isAvailable: true,
     isVegetarian: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-kale-salad/900/720",
-      "https://picsum.photos/seed/silverleaf-kale-salad-2/900/720",
-    ],
+    images: foodImages("salad,kale", 2),
     ingredients: [
       { ar: "كرنب", en: "Kale" },
       { ar: "برتقال", en: "Orange segments" },
@@ -382,10 +365,7 @@ export const products: Product[] = [
     calories: 410,
     isAvailable: true,
     isVegetarian: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-halloumi-salad/900/720",
-      "https://picsum.photos/seed/silverleaf-halloumi-salad-2/900/720",
-    ],
+    images: foodImages("halloumi,salad", 2),
     ingredients: [
       { ar: "جبن حلوم", en: "Halloumi cheese" },
       { ar: "طماطم كرزية", en: "Cherry tomatoes" },
@@ -411,10 +391,7 @@ export const products: Product[] = [
     isAvailable: true,
     isVegetarian: true,
     isPopular: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-basque-cheesecake/900/720",
-      "https://picsum.photos/seed/silverleaf-basque-cheesecake-2/900/720",
-    ],
+    images: foodImages("cheesecake,dessert", 2),
     ingredients: [
       { ar: "جبن كريمي", en: "Cream cheese" },
       { ar: "كراميل محروق", en: "Burnt caramel" },
@@ -438,10 +415,7 @@ export const products: Product[] = [
     calories: 380,
     isAvailable: true,
     isVegetarian: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-baklava/900/720",
-      "https://picsum.photos/seed/silverleaf-baklava-2/900/720",
-    ],
+    images: foodImages("baklava,pistachio", 2),
     ingredients: [
       { ar: "عجين فيلو", en: "Filo pastry" },
       { ar: "فستق مطحون", en: "Crushed pistachio" },
@@ -466,10 +440,7 @@ export const products: Product[] = [
     isAvailable: true,
     isVegetarian: true,
     isPopular: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-mint-lemonade/900/720",
-      "https://picsum.photos/seed/silverleaf-mint-lemonade-2/900/720",
-    ],
+    images: foodImages("lemonade,mint", 2),
     ingredients: [
       { ar: "ليمون طازج", en: "Fresh lemon" },
       { ar: "نعناع", en: "Mint" },
@@ -495,10 +466,7 @@ export const products: Product[] = [
     calories: 160,
     isAvailable: true,
     hasOffer: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-mango-cooler/900/720",
-      "https://picsum.photos/seed/silverleaf-mango-cooler-2/900/720",
-    ],
+    images: foodImages("mango,smoothie", 2),
     ingredients: [
       { ar: "مانجو", en: "Mango" },
       { ar: "باشن فروت", en: "Passionfruit" },
@@ -524,10 +492,7 @@ export const products: Product[] = [
     isAvailable: true,
     isPopular: true,
     isVegetarian: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-spanish-latte/900/720",
-      "https://picsum.photos/seed/silverleaf-spanish-latte-2/900/720",
-    ],
+    images: foodImages("latte,coffee", 2),
     ingredients: [
       { ar: "إسبريسو", en: "Espresso" },
       { ar: "حليب مكثف محلى", en: "Condensed milk" },
@@ -552,10 +517,7 @@ export const products: Product[] = [
     calories: 5,
     isAvailable: true,
     isVegetarian: true,
-    images: [
-      "https://picsum.photos/seed/silverleaf-pour-over/900/720",
-      "https://picsum.photos/seed/silverleaf-pour-over-2/900/720",
-    ],
+    images: foodImages("coffee,pourover", 2),
     ingredients: [
       { ar: "حبوب قهوة مختصة", en: "Specialty coffee beans" },
       { ar: "ماء مفلتر", en: "Filtered water" },

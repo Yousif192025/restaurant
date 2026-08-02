@@ -157,6 +157,22 @@ that actually needed real validation.
 (`RESTAURANT_WHATSAPP_NUMBER`). Update it to the restaurant's real number
 before this ships.
 
+## Real, relevant product images
+
+All product photos were switched from random Picsum placeholders to
+**LoremFlickr** (`loremflickr.com`) — a free, actively-maintained placeholder
+service that returns real Creative Commons-licensed Flickr photos matching
+keywords you supply, instead of unrelated random images. Each dish now uses
+keywords matching its actual name (e.g. the Truffle Margherita pulls
+`pizza,margherita` photos, the Spanish Latte pulls `latte,coffee`), via the
+`foodImages()` helper in `features/menu/data/mockMenu.ts`. The `lock`
+parameter pins a specific photo per dish so it stays consistent across
+reloads instead of changing every time.
+
+When real photography is ready, replace the `foodImages(...)` calls in
+`mockMenu.ts` with actual image URLs (or wire `menuService` to Flask, which
+would return real URLs from the database).
+
 ## Getting started
 
 ```bash

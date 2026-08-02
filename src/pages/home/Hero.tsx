@@ -56,7 +56,7 @@ export function Hero({ locale }: { locale: Locale }) {
             style={{ borderRadius: "62% 38% 55% 45% / 55% 45% 60% 40%" }}
           >
             <img
-              src="https://picsum.photos/seed/silverleaf-hero-dish/800/800"
+              src="https://loremflickr.com/800/800/wagyu,steak?lock=482910"
               alt="Signature dish"
               className="h-full w-full object-cover"
             />
