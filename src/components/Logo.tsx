@@ -2,7 +2,7 @@ interface LogoProps {
   className?: string;
 }
 
-/** The Silver Leaf mark: a single leaf vein rendered as a continuous stroke. */
+/** The مطعمي mark: a single leaf vein rendered as a continuous stroke. */
 export function Logo({ className = "h-8 w-8" }: LogoProps) {
   return (
     <svg

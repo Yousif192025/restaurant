@@ -1,5 +1,5 @@
-import * as Icons from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
+import { getCategoryIcon } from "@/constants/categoryIcons";
 import type { Category } from "@/types/menu";
 import type { Locale } from "@/constants/copy";
 
@@ -9,10 +9,11 @@ interface CategoryCardProps {
 }
 
 export function CategoryCard({ category, locale }: CategoryCardProps) {
-  const Icon = (Icons[category.icon as keyof typeof Icons] ?? Icons.UtensilsCrossed) as LucideIcon;
+  const Icon = getCategoryIcon(category.icon);
 
   return (
-    <button
+    <Link
+      to={`/menu?category=${category.id}`}
       className="group flex flex-col items-center gap-3 rounded-leaf border border-forest-900/10 dark:border-parchment-100/10
         bg-parchment-100 dark:bg-forest-900 px-4 py-6 transition-all duration-200
         hover:-translate-y-1 hover:border-gold-500/50 hover:shadow-lg hover:shadow-forest-900/5"
@@ -26,6 +27,6 @@ export function CategoryCard({ category, locale }: CategoryCardProps) {
       <span className="text-xs font-mono text-ink-600/70 dark:text-moss-300/70">
         {category.productCount} {locale === "ar" ? "أصناف" : "items"}
       </span>
-    </button>
+    </Link>
   );
 }

@@ -6,8 +6,7 @@ interface VineRuleProps {
 /**
  * The page's signature mark: a single hand-drawn vine with three leaf buds.
  * Used under section titles in place of a plain rule or numbered markers —
- * there is no sequence to encode here, just a recurring motif tied to the
- * "Silver Leaf" name itself.
+ * there is no sequence to encode here, just a recurring decorative motif.
  */
 export function VineRule({ className = "", widthClass = "w-24" }: VineRuleProps) {
   return (

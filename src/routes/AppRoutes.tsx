@@ -1,60 +1,37 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "@/pages/HomePage";
 import { ComingSoonPage } from "@/pages/ComingSoonPage";
+import { PageLoadingFallback } from "@/components/ui/PageLoadingFallback";
 
-// استيراد الصفحات الجديدة (سننشئها لاحقاً)
-// import { MenuPage } from "@/pages/MenuPage";
-// import { CartPage } from "@/pages/CartPage";
-// import { CheckoutPage } from "@/pages/CheckoutPage";
-// import { OffersPage } from "@/pages/OffersPage";
-// import { AboutPage } from "@/pages/AboutPage";
-// import { ContactPage } from "@/pages/ContactPage";
-// import { ReservationPage } from "@/pages/ReservationPage";
+const MenuPage = lazy(() => import("@/pages/MenuPage").then((m) => ({ default: m.MenuPage })));
+const ProductDetailsPage = lazy(() =>
+  import("@/pages/ProductDetailsPage").then((m) => ({ default: m.ProductDetailsPage }))
+);
+const CartPage = lazy(() => import("@/pages/CartPage").then((m) => ({ default: m.CartPage })));
+const CheckoutPage = lazy(() => import("@/pages/CheckoutPage").then((m) => ({ default: m.CheckoutPage })));
+const OrderConfirmationPage = lazy(() =>
+  import("@/pages/OrderConfirmationPage").then((m) => ({ default: m.OrderConfirmationPage }))
+);
+const OrderHistoryPage = lazy(() =>
+  import("@/pages/OrderHistoryPage").then((m) => ({ default: m.OrderHistoryPage }))
+);
 
 export function AppRoutes() {
   return (
-    <Routes>
-      {/* الصفحة الرئيسية */}
-      <Route path="/" element={<HomePage />} />
-      
-      {/* قائمة الطعام */}
-      <Route path="/menu" element={<ComingSoonPage />} />
-      <Route path="/menu/category/:categoryId" element={<ComingSoonPage />} />
-      
-      {/* تفاصيل المنتج */}
-      <Route path="/product/:id" element={<ComingSoonPage />} />
-      
-      {/* سلة المشتريات */}
-      <Route path="/cart" element={<ComingSoonPage />} />
-      
-      {/* الدفع */}
-      <Route path="/checkout" element={<ComingSoonPage />} />
-      
-      {/* الطلبات */}
-      <Route path="/orders" element={<ComingSoonPage />} />
-      <Route path="/orders/:id" element={<ComingSoonPage />} />
-      
-      {/* الحجز */}
-      <Route path="/table" element={<ComingSoonPage />} />
-      <Route path="/reservation" element={<ComingSoonPage />} />
-      
-      {/* العروض */}
-      <Route path="/offers" element={<ComingSoonPage />} />
-      
-      {/* عن المطعم */}
-      <Route path="/about" element={<ComingSoonPage />} />
-      
-      {/* اتصل بنا */}
-      <Route path="/contact" element={<ComingSoonPage />} />
-      
-      {/* سياسة الخصوصية */}
-      <Route path="/privacy" element={<ComingSoonPage />} />
-      
-      {/* شروط الاستخدام */}
-      <Route path="/terms" element={<ComingSoonPage />} />
-      
-      {/* أي مسار غير موجود */}
-      <Route path="*" element={<ComingSoonPage />} />
-    </Routes>
+    <Suspense fallback={<PageLoadingFallback />}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/orders" element={<OrderHistoryPage />} />
+        <Route path="/orders/:id" element={<OrderConfirmationPage />} />
+        {/* Scaffolded for a future milestone: table reservations */}
+        <Route path="/table" element={<ComingSoonPage />} />
+        <Route path="*" element={<ComingSoonPage />} />
+      </Routes>
+    </Suspense>
   );
 }

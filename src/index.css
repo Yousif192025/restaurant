@@ -13,7 +13,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* --- Silver Leaf token system --- */
+  /* --- مطعمي design token system --- */
   --color-forest-950: #0f1a13;
   --color-forest-900: #16261c;
   --color-forest-800: #203527;
@@ -90,34 +90,4 @@
   .text-balance {
     text-wrap: balance;
   }
-}
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'IBM Plex Sans Arabic', 'Tajawal', 'Alexandria', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* دعم RTL */
-[dir="rtl"] {
-  text-align: right;
-}
-
-[dir="ltr"] {
-  text-align: left;
-}
-
-/* تحسينات للغة العربية */
-.arabic-text {
-  font-family: 'IBM Plex Sans Arabic', 'Tajawal', 'Alexandria', sans-serif;
-  line-height: 1.8;
 }

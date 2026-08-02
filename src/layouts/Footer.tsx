@@ -1,56 +1,23 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Logo } from "@/components/Logo";
+import { useUiStore } from "@/store/uiStore";
+import { copy } from "@/constants/copy";
 
-export const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-  
+export function Footer() {
+  const locale = useUiStore((s) => s.locale);
+  const t = copy[locale].footer;
+
   return (
-    <footer className="footer">
-      <div className="container">
-        <div className="footer-grid">
-          {/* قسم المطعم */}
-          <div className="footer-section">
-            <h3 className="footer-title">
-              <span className="title-icon">🍽️</span>
-              مطعمي
-            </h3>
-            <p className="footer-description">
-              نكهات سعودية أصيلة وأشهى الأطباق العالمية في أجواء عربية أصيلة
-            </p>
-          </div>
-
-          {/* روابط سريعة */}
-          <div className="footer-section">
-            <h4 className="footer-heading">روابط سريعة</h4>
-            <ul className="footer-links">
-              <li><Link to="/menu">القائمة</Link></li>
-              <li><Link to="/offers">العروض الخاصة</Link></li>
-              <li><Link to="/reservation">احجز طاولتك</Link></li>
-              <li><Link to="/delivery">التوصيل</Link></li>
-            </ul>
-          </div>
-
-          {/* معلومات الاتصال */}
-          <div className="footer-section">
-            <h4 className="footer-heading">اتصل بنا</h4>
-            <ul className="footer-contact">
-              <li>📍 الرياض، المملكة العربية السعودية</li>
-              <li>📞 +966 12 345 6789</li>
-              <li>✉️ info@mataami.com</li>
-              <li>🕐 ٦ص - ١١م</li>
-            </ul>
-          </div>
+    <footer className="border-t border-forest-900/10 dark:border-parchment-100/10 mt-24">
+      <div className="mx-auto max-w-6xl px-5 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2 text-forest-900 dark:text-parchment-100">
+          <Logo className="h-6 w-6" />
+          <span className="font-display font-semibold">مطعمي</span>
         </div>
-
-        {/* حقوق النشر - تم التحديث هنا */}
-        <div className="footer-bottom">
-          <p>© {currentYear} مطعمي — جميع الحقوق محفوظة</p>
-          <div className="footer-bottom-links">
-            <Link to="/privacy">سياسة الخصوصية</Link>
-            <Link to="/terms">شروط الاستخدام</Link>
-          </div>
-        </div>
+        <p className="text-sm text-ink-600 dark:text-moss-300 text-center">{t.tagline}</p>
+        <p className="text-xs font-mono text-ink-600/70 dark:text-moss-300/70">
+          © {new Date().getFullYear()} مطعمي — {t.rights}
+        </p>
       </div>
     </footer>
   );
-};
+}
